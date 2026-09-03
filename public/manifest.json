@@ -1,0 +1,18 @@
+{
+  "name": "Video-Cut • In-Browser Video Editor",
+  "short_name": "Video-Cut",
+  "description": "Lightning-fast client-side video editor powered by WebCodecs and ffmpeg.wasm. 100% private.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
