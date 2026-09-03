@@ -837,6 +837,90 @@ export const AppShell: React.FC = () => {
             />
           )}
         </section>
+
+        {/* ================= SEO & Informational Section ================= */}
+        <section className="w-full pt-8 pb-4 space-y-8 border-t border-slate-800/80 mt-4 text-slate-300">
+          <h1 className="sr-only">
+            ตัดคลิปไว — เครื่องมือตัดต่อวิดีโอออนไลน์ฟรี ตัดคลิป รวมคลิป ปลอดภัย 100%
+          </h1>
+
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <h2 className="text-lg sm:text-xl font-bold text-white">
+              ตัดคลิปไว — เครื่องมือตัดต่อวิดีโอออนไลน์ฟรี ที่เร็วและปลอดภัยที่สุด
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400">
+              ตัดต่อคลิป รวมวิดีโอหลายไฟล์ และปรับขนาดภาพสำหรับลง TikTok, Reels, Shorts และ YouTube ได้ทันทีในเว็บเบราว์เซอร์ ไม่ต้องติดตั้งโปรแกรม
+            </p>
+          </div>
+
+          {/* 4 Key Feature Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80 space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
+                ⚡
+              </div>
+              <h3 className="text-xs font-bold text-white">ตัดต่อเสร็จในเสี้ยววินาที</h3>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                ใช้เทคโนโลยีประมวลผลทันทีในเบราว์เซอร์ สามารถตัดและรวมคลิปได้รวดเร็วโดยไม่ต้องรอ Render นาน
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80 space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
+                🔒
+              </div>
+              <h3 className="text-xs font-bold text-white">ปลอดภัยสูงสุด 100%</h3>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                ไฟล์วิดีโอของคุณจะถูกประมวลผลอยู่ภายในเครื่องของคุณเองเท่านั้น ไม่มีการอัปโหลดไฟล์ขึ้นเซิร์ฟเวอร์ใด ๆ
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80 space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold">
+                📱
+              </div>
+              <h3 className="text-xs font-bold text-white">ปรับขนาดลงโซเชียลทันที</h3>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                รองรับอัตราส่วน 9:16 สำหรับ TikTok, Reels และ Shorts หรือ 16:9 แนวนอนสำหรับ YouTube ได้ในคลิกเดียว
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80 space-y-2">
+              <div className="w-8 h-8 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center font-bold">
+                🆓
+              </div>
+              <h3 className="text-xs font-bold text-white">ฟรี 100% ไม่มีลายน้ำ</h3>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                ใช้งานได้ฟรีตลอดไป ไม่มีลายน้ำติดบนวิดีโอ ไม่จำกัดจำนวนครั้ง และไม่ต้องสมัครสมาชิก
+              </p>
+            </div>
+          </div>
+
+          {/* Quick FAQ */}
+          <div className="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-4 max-w-3xl mx-auto">
+            <h3 className="text-sm font-bold text-white text-center">คำถามที่พบบ่อย (FAQ)</h3>
+            <div className="space-y-3 text-xs">
+              <div className="space-y-1">
+                <p className="font-semibold text-slate-200">Q: ตัดคลิปไว ปลอดภัยไหม ไฟล์จะหลุดหรือไม่?</p>
+                <p className="text-slate-400 text-[11px]">
+                  A: ปลอดภัย 100% ครับ ระบบของเราทำงานบนเครื่องของคุณทั้งหมดผ่านเบราว์เซอร์ ไม่มีการส่งข้อมูลวิดีโอออกไปยังอินเทอร์เน็ตเลย
+                </p>
+              </div>
+              <div className="space-y-1 border-t border-slate-800/60 pt-2">
+                <p className="font-semibold text-slate-200">Q: สามารถรวมหลายคลิปเข้าด้วยกันได้ไหม?</p>
+                <p className="text-slate-400 text-[11px]">
+                  A: ได้ครับ คุณสามารถเลือกไฟล์เข้ามาได้หลายไฟล์พร้อมกัน ระบบจะนำมาต่อกันบนแถบไทม์ไลน์ และตัดต่อแต่ละคลิปได้ตามต้องการก่อนบันทึกรวมเป็นไฟล์เดียว
+                </p>
+              </div>
+              <div className="space-y-1 border-t border-slate-800/60 pt-2">
+                <p className="font-semibold text-slate-200">Q: รองรับไฟล์วิดีโอประเภทใดบ้าง?</p>
+                <p className="text-slate-400 text-[11px]">
+                  A: รองรับไฟล์วิดีโอยอดนิยมทุกประเภท เช่น MP4, MOV (จาก iPhone), WebM และ MKV สามารถบันทึกออกมาเป็น MP4 หรือ WebM ได้ทันที
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Export Progress / Result Modal */}

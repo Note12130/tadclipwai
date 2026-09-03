@@ -1,7 +1,7 @@
 {
-  "name": "Video-Cut • In-Browser Video Editor",
-  "short_name": "Video-Cut",
-  "description": "Lightning-fast client-side video editor powered by WebCodecs and ffmpeg.wasm. 100% private.",
+  "name": "ตัดคลิปไว • เครื่องมือตัดต่อวิดีโอออนไลน์",
+  "short_name": "ตัดคลิปไว",
+  "description": "ตัดต่อวิดีโอออนไลน์ฟรี ตัดคลิป รวมคลิป ปลอดภัย 100% ประมวลผลในเครื่อง ไม่ต้องอัปโหลดไฟล์",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#020617",
