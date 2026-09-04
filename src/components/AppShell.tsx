@@ -7,6 +7,7 @@ import { CropControls, type AspectRatioPreset, type OutputFormat } from './CropC
 import { ExportModal } from './ExportModal';
 import { BenchmarkModal } from './BenchmarkModal';
 import { LowEndWarningModal } from './LowEndWarningModal';
+import { AdConsentModal } from './AdConsentModal';
 import { useEnvironment } from '../hooks/useEnvironment';
 import { useDevicePerformance, shouldWarnBeforeSlowOperation } from '../hooks/useDevicePerformance';
 import { OPFSManager } from '../utils/opfs';
@@ -80,6 +81,40 @@ export const AppShell: React.FC = () => {
   const [isLowEndWarningOpen, setIsLowEndWarningOpen] = useState(false);
   const [fileLoadError, setFileLoadError] = useState<string | null>(null);
   const [isBenchmarkModalOpen, setIsBenchmarkModalOpen] = useState(false);
+
+  // Google AdSense & Privacy Consent State
+  const [isAdConsentOpen, setIsAdConsentOpen] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('tadclipwai_ad_consent') === null;
+    }
+    return false;
+  });
+
+  const handleAcceptAdConsent = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('tadclipwai_ad_consent', 'accepted');
+      try {
+        (window as any).adsbygoogle = (window as any).adsbygoogle || [];
+        (window as any).adsbygoogle.requestNonPersonalizedAds = 0;
+      } catch {
+        // ignore
+      }
+    }
+    setIsAdConsentOpen(false);
+  }, []);
+
+  const handleDeclineAdConsent = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('tadclipwai_ad_consent', 'declined');
+      try {
+        (window as any).adsbygoogle = (window as any).adsbygoogle || [];
+        (window as any).adsbygoogle.requestNonPersonalizedAds = 1;
+      } catch {
+        // ignore
+      }
+    }
+    setIsAdConsentOpen(false);
+  }, []);
 
   // Compute composite sequence timeline math
   const sequenceTimeline = useMemo(() => {
@@ -923,6 +958,14 @@ export const AppShell: React.FC = () => {
         </section>
       </main>
 
+      {/* Google AdSense & Privacy Consent Modal */}
+      <AdConsentModal
+        isOpen={isAdConsentOpen}
+        onAccept={handleAcceptAdConsent}
+        onDecline={handleDeclineAdConsent}
+        onClose={() => setIsAdConsentOpen(false)}
+      />
+
       {/* Export Progress / Result Modal */}
       <ExportModal
         isOpen={isExportModalOpen}
@@ -957,9 +1000,17 @@ export const AppShell: React.FC = () => {
       <footer className="border-t border-slate-900 py-3 px-6 text-center text-xs text-slate-500">
         <div className="max-w-[1700px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>ตัดคลิปไว • เครื่องมือตัดต่อวิดีโอในเว็บ ปลอดภัย 100% ไม่มีการส่งไฟล์ไปที่ใด</span>
-          <span className="text-[11px] text-slate-400">
-            🔒 วิดีโอของคุณประมวลผลอย่างปลอดภัยในเครื่องของคุณเอง
-          </span>
+          <div className="flex items-center gap-3 text-[11px] text-slate-400">
+            <button
+              type="button"
+              onClick={() => setIsAdConsentOpen(true)}
+              className="hover:text-indigo-400 underline decoration-slate-700 hover:decoration-indigo-400 transition-colors cursor-pointer"
+            >
+              🍪 การยินยอมโฆษณา &amp; ความเป็นส่วนตัว
+            </button>
+            <span>•</span>
+            <span>🔒 วิดีโอประมวลผลในเครื่องของคุณ</span>
+          </div>
         </div>
       </footer>
     </div>

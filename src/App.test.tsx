@@ -5,7 +5,7 @@ import App from './App';
 describe('App Shell', () => {
   it('renders application brand and privacy badge', () => {
     render(<App />);
-    expect(screen.getByText('ตัดคลิปไว')).toBeDefined();
+    expect(screen.getAllByText('ตัดคลิปไว').length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText('ปลอดภัย 100%').length).toBeGreaterThanOrEqual(1);
   });
 });
