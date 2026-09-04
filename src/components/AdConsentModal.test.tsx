@@ -8,48 +8,48 @@ describe('AdConsentModal Component', () => {
       <AdConsentModal
         isOpen={false}
         onAccept={vi.fn()}
-        onDecline={vi.fn()}
       />
     );
     expect(container.firstChild).toBeNull();
   });
 
-  it('renders correctly when isOpen is true and triggers onAccept', () => {
+  it('renders compact message and triggers onAccept on clicking "รับทราบ"', () => {
     const handleAccept = vi.fn();
-    const handleDecline = vi.fn();
+    const handleClose = vi.fn();
 
     render(
       <AdConsentModal
         isOpen={true}
         onAccept={handleAccept}
-        onDecline={handleDecline}
+        onClose={handleClose}
       />
     );
 
-    expect(screen.getByText(/การยินยอมการแสดงโฆษณาและความเป็นส่วนตัว/i)).toBeDefined();
-    expect(screen.getAllByText(/Google AdSense/i).length).toBeGreaterThanOrEqual(1);
+    expect(
+      screen.getByText('เว็บไซต์นี้ใช้คุกกี้เพื่อสร้างประสบการณ์ที่ดีมีประสิทธิภาพยิ่งขึ้น')
+    ).toBeDefined();
 
-    const acceptBtn = screen.getByRole('button', { name: /ยินยอมและใช้งานต่อ/i });
+    const acceptBtn = screen.getByRole('button', { name: 'รับทราบ' });
     fireEvent.click(acceptBtn);
     expect(handleAccept).toHaveBeenCalledTimes(1);
-    expect(handleDecline).not.toHaveBeenCalled();
+    expect(handleClose).not.toHaveBeenCalled();
   });
 
-  it('triggers onDecline when decline button is clicked', () => {
+  it('triggers onClose when close button (X) is clicked', () => {
     const handleAccept = vi.fn();
-    const handleDecline = vi.fn();
+    const handleClose = vi.fn();
 
     render(
       <AdConsentModal
         isOpen={true}
         onAccept={handleAccept}
-        onDecline={handleDecline}
+        onClose={handleClose}
       />
     );
 
-    const declineBtn = screen.getByRole('button', { name: /ปฏิเสธ \/ แสดงเฉพาะโฆษณาทั่วไป/i });
-    fireEvent.click(declineBtn);
-    expect(handleDecline).toHaveBeenCalledTimes(1);
+    const closeBtn = screen.getByRole('button', { name: 'ปิด' });
+    fireEvent.click(closeBtn);
+    expect(handleClose).toHaveBeenCalledTimes(1);
     expect(handleAccept).not.toHaveBeenCalled();
   });
 });

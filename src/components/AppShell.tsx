@@ -103,19 +103,6 @@ export const AppShell: React.FC = () => {
     setIsAdConsentOpen(false);
   }, []);
 
-  const handleDeclineAdConsent = useCallback(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('tadclipwai_ad_consent', 'declined');
-      try {
-        (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-        (window as any).adsbygoogle.requestNonPersonalizedAds = 1;
-      } catch {
-        // ignore
-      }
-    }
-    setIsAdConsentOpen(false);
-  }, []);
-
   // Compute composite sequence timeline math
   const sequenceTimeline = useMemo(() => {
     return computeSequenceTimeline(clipQueue);
@@ -962,7 +949,6 @@ export const AppShell: React.FC = () => {
       <AdConsentModal
         isOpen={isAdConsentOpen}
         onAccept={handleAcceptAdConsent}
-        onDecline={handleDeclineAdConsent}
         onClose={() => setIsAdConsentOpen(false)}
       />
 
