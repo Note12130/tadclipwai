@@ -41,9 +41,17 @@ export const AdConsentModal: React.FC<AdConsentModalProps> = ({
         </button>
       </div>
 
-      {/* Body: User Requested Text */}
+      {/* Body: User Requested Text with 'เพิ่มเติม' link */}
       <p className="text-xs text-slate-300 leading-relaxed">
-        เว็บไซต์นี้ใช้คุกกี้เพื่อสร้างประสบการณ์ที่ดีมีประสิทธิภาพยิ่งขึ้น
+        เว็บไซต์นี้ใช้คุกกี้เพื่อสร้างประสบการณ์ที่ดีมีประสิทธิภาพยิ่งขึ้น{' '}
+        <a
+          href="/cookie-policy.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium"
+        >
+          เพิ่มเติม
+        </a>
       </p>
 
       {/* Action Button: "รับทราบ" */}

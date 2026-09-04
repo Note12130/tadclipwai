@@ -992,8 +992,17 @@ export const AppShell: React.FC = () => {
               onClick={() => setIsAdConsentOpen(true)}
               className="hover:text-indigo-400 underline decoration-slate-700 hover:decoration-indigo-400 transition-colors cursor-pointer"
             >
-              🍪 การยินยอมโฆษณา &amp; ความเป็นส่วนตัว
+              🍪 ตั้งค่าคุกกี้
             </button>
+            <span>•</span>
+            <a
+              href="/cookie-policy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-400 underline decoration-slate-700 hover:decoration-indigo-400 transition-colors"
+            >
+              นโยบายคุกกี้
+            </a>
             <span>•</span>
             <span>🔒 วิดีโอประมวลผลในเครื่องของคุณ</span>
           </div>

@@ -13,7 +13,7 @@ describe('AdConsentModal Component', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it('renders compact message and triggers onAccept on clicking "รับทราบ"', () => {
+  it('renders compact message with "เพิ่มเติม" link and triggers onAccept on clicking "รับทราบ"', () => {
     const handleAccept = vi.fn();
     const handleClose = vi.fn();
 
@@ -26,8 +26,13 @@ describe('AdConsentModal Component', () => {
     );
 
     expect(
-      screen.getByText('เว็บไซต์นี้ใช้คุกกี้เพื่อสร้างประสบการณ์ที่ดีมีประสิทธิภาพยิ่งขึ้น')
+      screen.getByText(/เว็บไซต์นี้ใช้คุกกี้เพื่อสร้างประสบการณ์ที่ดีมีประสิทธิภาพยิ่งขึ้น/i)
     ).toBeDefined();
+
+    const link = screen.getByRole('link', { name: 'เพิ่มเติม' });
+    expect(link).toBeDefined();
+    expect(link.getAttribute('href')).toBe('/cookie-policy.html');
+    expect(link.getAttribute('target')).toBe('_blank');
 
     const acceptBtn = screen.getByRole('button', { name: 'รับทราบ' });
     fireEvent.click(acceptBtn);
